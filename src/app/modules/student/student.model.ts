@@ -1,16 +1,16 @@
 import { Schema, model } from 'mongoose';
 import {
-  Guardian,
-  Student,
-  localGuardian,
-  userName,
+  IGuardian,
+  IStudent,
+  ILocalGuardin,
+  IUserName,
 } from './student.interface';
 
 // ==================================
-//  SCHEMAS STARTS 
+//  SCHEMAS STARTS
 // ==================================
 
-const userNameSchema = new Schema<userName>({
+const userNameSchema = new Schema<IUserName>({
   firstName: {
     type: String,
     required: true,
@@ -24,7 +24,7 @@ const userNameSchema = new Schema<userName>({
   },
 });
 
-const guardianSchema = new Schema<Guardian>({
+const guardianSchema = new Schema<IGuardian>({
   fatherName: {
     type: String,
     required: true,
@@ -51,7 +51,7 @@ const guardianSchema = new Schema<Guardian>({
   },
 });
 
-const localGuardianSchema = new Schema<localGuardian>({
+const localGuardianSchema = new Schema<ILocalGuardin>({
   name: {
     type: String,
     required: true,
@@ -66,7 +66,7 @@ const localGuardianSchema = new Schema<localGuardian>({
   },
 });
 
-const studentSchema = new Schema<Student>({
+const studentSchema = new Schema<IStudent>({
   id: { type: String },
   name: userNameSchema,
   gender: ['male', 'female'],
@@ -110,7 +110,7 @@ const studentSchema = new Schema<Student>({
 //  MODEL CREATION STARTS
 // ==================================
 
-const Student = model<Student>('Student', studentSchema);
+export const Student = model<IStudent>('Student', studentSchema);
 
 // ==================================
 //  MODEL CREATION ENDS

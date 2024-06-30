@@ -1,4 +1,4 @@
-export type Guardian = {
+export type IGuardian = {
   fatherName: string;
   fatherOccupation: string;
   fatherContactNo: string;
@@ -7,22 +7,22 @@ export type Guardian = {
   motherContactNo: string;
 };
 
-export type userName = {
+export type IUserName = {
   firstName: string;
   middleName?: string;
   lastName: string;
 };
 
-export type localGuardian = {
+export type ILocalGuardin = {
   name: string;
   occupation: string;
   contactNo: string;
   address: string;
 };
 
-export type Student = {
+export type IStudent = {
   id?: string;
-  name: userName;
+  name: IUserName;
   gender: 'male' | 'female';
   dateOfBirth?: string;
   email: string;
@@ -31,8 +31,8 @@ export type Student = {
   bloodGroup?: 'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'O+' | 'O-';
   presentAddress: string;
   parmanentAddress: string;
-  guardin: Guardian;
-  localGuardin: localGuardian;
+  guardin: IGuardian;
+  localGuardin: ILocalGuardin;
   profileImg?: string;
   isActive: 'active' | 'blocked';
 };
